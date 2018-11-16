@@ -1,0 +1,8 @@
+#goal definition
+std_msgs/Float32 height
+---
+#result definition
+std_msgs/Bool position_reached
+---
+#feedback
+geometry_msgs/PoseStamped current_position

@@ -1,0 +1,8 @@
+#goal definition
+std_msgs/String data
+---
+#result definition
+std_msgs/Bool centered
+---
+#feedback
+geometry_msgs/PoseStamped current_position

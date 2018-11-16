@@ -1,0 +1,371 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="f550_amazing_dead_blue">
+    <static>false</static>
+    <pose>0 0 0 0 0 0</pose>
+
+<!-- ######################################## LOWER_PLATE # ######################################## -->
+    <link name="base_link">
+	<gravity>true</gravity>
+	<pose>0 0 0.0015 0 0 0</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="base_link_collision">
+		<pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+			<box>
+				<size>0.179 0.179 0.003</size>
+			</box>
+        </geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>1</mu>
+						<mu2>1</mu2>
+					</ode>
+				</friction>	
+				<contact>
+					<ode>
+						<min_depth>0.001</min_depth>						
+					</ode>
+				</contact>		
+			</surface>
+      </collision>
+
+      <visual name="base_link_visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Lower_plate_CG.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+<!-- ####################################### /LOWER_PLATE # ######################################## -->
+
+<!-- ######################################## TOP_PLATE ############################################ -->
+    <link name="Top_plate_link">
+	<gravity>true</gravity>
+	<pose>0 0 0.0375 0 0 2.09439510239</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision_Top_plate">
+        <geometry>
+        <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Top_plate_CG.STL</uri>
+          </mesh>
+        </geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>1</mu>
+						<mu2>1</mu2>
+					</ode>
+				</friction>	
+				<contact>
+					<ode>
+						<min_depth>0.001</min_depth>						
+					</ode>
+				</contact>		
+			</surface>
+      </collision>
+
+      <visual name="visual_Top_plate">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Top_plate_CG.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+
+
+      <visual name="visual_Top_plate_Blue">
+	  <pose>0 0 0 0 0 0.523599</pose>
+        <geometry>
+			<box>
+				<size>0.179 0.179 0.006</size>
+			</box>
+        </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Blue</name>
+              <uri>__default__</uri>
+            </script>
+            <ambient>0 0 1 1</ambient>
+            <diffuse>0 0 1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <emissive>0 0 0 1</emissive>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+          </material>
+      </visual>
+
+    </link>
+
+	<joint name='Lower_Top_joint' type='fixed'>
+	  	<child>Top_plate_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ####################################### /TOP_PLATE ############################################ -->
+
+<!-- ############################################# ARM1 ############################################ -->
+    <link name="Arm1_link">
+	<gravity>true</gravity>
+	<pose>0 0.1874 0.009875004 0 0 1.57079632679</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual_Arm1">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Arm_CG.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+	<joint name='Lower_Arm1_joint' type='fixed'>
+	  	<child>Arm1_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ############################################ /ARM1 ############################################ -->
+
+<!-- ############################################# ARM2 ############################################ -->
+    <link name="Arm2_link">
+	<gravity>true</gravity>
+	<pose>0.162293160669 0.0937 0.009875004 0 0 0.523598775598</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual_Arm2">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Arm_CG.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+	<joint name='Lower_Arm2_joint' type='fixed'>
+	  	<child>Arm2_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ############################################ /ARM2 ############################################ -->
+
+<!-- ############################################# ARM3 ############################################ -->
+    <link name="Arm3_link">
+	<gravity>true</gravity>
+	<pose>0.162293160669 -0.0937 0.009875004 0 0 -0.523598775598</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual_Arm3">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Arm_CG.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+
+	<joint name='Lower_Arm3_joint' type='fixed'>
+	  	<child>Arm3_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ############################################ /ARM3 ############################################ -->
+
+<!-- ############################################# ARM4 ############################################ -->
+    <link name="Arm4_link">
+	<gravity>true</gravity>
+	<pose>0 -0.1874 0.009875004 0 0 -1.57079632679</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual_Arm4">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Arm_CG.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+	<joint name='Lower_Arm4_joint' type='fixed'>
+	  	<child>Arm4_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ############################################ /ARM4 ############################################ -->
+
+<!-- ############################################# ARM5 ############################################ -->
+    <link name="Arm5_link">
+	<gravity>true</gravity>
+	<pose>-0.162293160669 -0.0937 0.009875004 0 0 3.66519142919</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual_Arm5">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Arm_CG.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+	<joint name='Lower_Arm5_joint' type='fixed'>
+	  	<child>Arm5_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ############################################ /ARM5 ############################################ -->
+
+<!-- ############################################# ARM6 ############################################ -->
+    <link name="Arm6_link">
+	<gravity>true</gravity>
+	<pose>-0.162293160669 0.0937 0.009875004 0 0 2.61799387799</pose>
+	
+      <inertial>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual_Arm6">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://f550_amazing/meshes/Arm_CG.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/DarkGrey</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+    </link>
+
+	<joint name='Lower_Arm6_joint' type='fixed'>
+	  	<child>Arm6_link</child>
+	  	<parent>base_link</parent>
+	</joint>
+<!-- ############################################ /ARM6 ############################################ -->
+
+  </model>
+</sdf>

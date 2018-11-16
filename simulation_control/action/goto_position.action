@@ -1,0 +1,8 @@
+#goal definition
+geometry_msgs/PoseStamped destination
+---
+#result definition
+std_msgs/String data
+---
+#feedback
+geometry_msgs/PoseStamped current_position

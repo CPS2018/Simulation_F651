@@ -1,0 +1,135 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  
+	<model name='landing_strip'>
+      <static>1</static>
+	  <pose>0 0 0 0 0 0</pose>
+      <link name='base_link'>
+
+        <collision name='landing_strip_collision'>
+	  	<pose>0 0 0.05 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>230 20 0.1</size>
+            </box>
+          </geometry>
+			<surface>
+				<friction>
+					<ode>
+						<mu>50</mu>
+						<mu2>50</mu2>
+					</ode>
+				</friction>	
+				<contact>
+					<ode>
+						<min_depth>0.001</min_depth>						
+					</ode>
+				</contact>		
+			</surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+
+        <visual name='landing_strip_visual'>
+	  	<pose>0 0 0.05 0 0 0</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>230 20 0.1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://asphalt_plane/materials/scripts</uri>
+              <uri>model://asphalt_plane/materials/textures</uri>
+              <name>vrc/asphalt</name>
+            </script>
+          </material>
+        </visual>
+
+        <visual name='white_line_long_visual'>
+	  	<pose>0 0 0.1 0 0 0</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>195 0.25 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <visual name='white_line_short_visual'>
+	  	<pose>0 0 0.1 0 0 0</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>0.25 15 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <visual name='white_line1_visual'>
+	  	<pose>105 0 0.1 0 0 0.785398</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>20 0.25 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <visual name='white_line2_visual'>
+	  	<pose>105 0 0.1 0 0 -0.785398</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>20 0.25 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <visual name='white_line3_visual'>
+	  	<pose>-105 0 0.1 0 0 0.785398</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>20 0.25 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <visual name='white_line4_visual'>
+	  	<pose>-105 0 0.1 0 0 -0.785398</pose>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <box>
+              <size>20 0.25 0.001</size>
+            </box>
+          </geometry>
+        </visual>
+
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+      </link>
+
+      <link name='world'>
+        <collision name='world_collision'>
+          <geometry>
+          	<mesh>
+          	<scale>1 1 1</scale>
+          		<uri>model://landing_strip/meshes/Timpa.dae</uri>
+          	</mesh>
+          </geometry>
+        </collision>
+
+        <visual name='world_visual'>
+		<cast_shadows>0</cast_shadows>
+			<geometry>
+				<mesh>
+					<scale>1 1 1</scale>
+					<uri>model://landing_strip/meshes/Timpa.dae</uri>
+				</mesh>
+			</geometry>
+        </visual>
+	</link>
+
+    </model>
+</sdf>

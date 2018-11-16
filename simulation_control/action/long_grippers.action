@@ -1,0 +1,8 @@
+#goal definition
+std_msgs/Float32 grip_rad_goal
+---
+#result definition
+std_msgs/Bool goal_reached
+---
+#feedback
+std_msgs/Float32 grip_rad_current

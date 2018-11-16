@@ -1,0 +1,10 @@
+<launch>
+  <node name="position_control" pkg="simulation_control" type="position_control.py" output="screen" />
+  <node name="action_controller" pkg="simulation_control" type="action_controller.py" output="screen" />
+  <node name="goto_position_server" pkg="simulation_control" type="goto_position_server.py" output="screen" />
+  <node name="detect_object_server" pkg="simulation_control" type="detect_object_server.py" output="screen" />
+  <node name="color_detection" pkg="simulation_control" type="color_detection.py" output="screen" />
+  <node name="short_grippers_server" pkg="simulation_control" type="short_grippers_server.py" output="screen" />
+  <node name="long_grippers_server" pkg="simulation_control" type="long_grippers_server.py" output="screen" />
+  <node name="descend_on_object_server" pkg="simulation_control" type="descend_on_object_server.py" output="screen" />
+</launch>
