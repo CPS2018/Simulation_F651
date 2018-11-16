@@ -1,6 +1,7 @@
 # Pre-requisite #
 * Ubuntu 16.04 LTS
 * ROS Kinetic
+* Assuming you use [catkin](http://wiki.ros.org/catkin) build system
 * Gazebo 7.14 
   * You can use this script [here](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_gazebo.sh):
    1. Download or save it somewhere
@@ -15,6 +16,20 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 5. `source setup-install.sh` (press <kbd>Return</kbd> to continue when asked)
 6. When it finishes, type `make posix_sitl_default`
 7. Then try to run Gazebo by typing `gazebo` in your terminal
+8. Connect the `sitl_gazebo` folder with your `catkin_ws/src` folder by typing `sudo ln -s ~/sitl_gazebo  ~/catkin_ws/src` in your terminal
+9. Connect the `src/Firmware` folder with your `catkin_ws/src` folder by typing `sudo ln -s ~/src/Firmware ~/catkin_ws/src` in your terminal
+10. Go to your `catkin_ws/src` folder (`cd ~/catkin_ws/src`) and build it by typing `catkin build` in the terminal.
+11. `source devel/setup.bash`
+12. Copy and paste this into your terminal `roscd; cd ..; cd src/Firmware
+make posix_sitl_default
+source ~/catkin_ws/devel/setup.bash
+source Tools/setup_gazebo.bash $(pwd) $(pwd)/build_posix_sitl_default
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
+roslaunch px4 posix_sitl.launch
+roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"
+`
+
 
 # FAQ #
 
