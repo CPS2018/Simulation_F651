@@ -20,7 +20,8 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 9. Connect the `src/Firmware` folder with your `catkin_ws/src` folder by typing `sudo ln -s ~/src/Firmware ~/catkin_ws/src` in your terminal
 10. Go to your `catkin_ws/src` folder (`cd ~/catkin_ws/src`) and build it by typing `catkin build` in the terminal.
 11. `source devel/setup.bash`
-12. Copy and paste this into your terminal `roscd; cd ..; cd src/Firmware
+12. Now do the folliwing to configure your ROS environment
+ 1. `roscd; cd ..; cd src/Firmware
 make posix_sitl_default
 source ~/catkin_ws/devel/setup.bash
 source Tools/setup_gazebo.bash $(pwd) $(pwd)/build_posix_sitl_default
