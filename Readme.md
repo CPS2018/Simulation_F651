@@ -7,7 +7,6 @@
    1. Download and save it
    2. Go to the location that you saved it
    3. Run `source ubuntu_sim_ros_gazebo.sh`
-   ![gazebo_quadtest](https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png)
    
 # OpenUAV #
 This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
@@ -76,6 +75,8 @@ Open three Terminals:
 1. `roslaunch simulation_control posix_sitl.launch`
 2. `roslaunch simulation_control px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
 3. `roslaunch simulation_control simulation_control.launch` 
+	
+   ![gazebo_quadtest](https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png)
 	
 # FAQ #
  ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib` ##
