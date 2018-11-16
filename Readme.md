@@ -80,7 +80,7 @@ Open three Terminals:
 1. `roslaunch simulation_control posix_sitl.launch`
 2. `roslaunch simulation_control px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
 3. `roslaunch simulation_control simulation_control.launch` 
-		
+		[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
 # FAQ #
  ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib` ##
  Do the following:
