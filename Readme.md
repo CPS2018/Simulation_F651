@@ -12,7 +12,7 @@ alt="IMAGE ALT TEXT HERE" width="1020" height="240" border="10" /></a>
 * Gazebo 7.14 
   * OR You can use download and run this script [here](https://raw.githubusercontent.com/PX4/Devguide/master/build_scripts/ubuntu_sim_ros_gazebo.sh):
    1. Download and save it
-   2. Go to the location that you saved it
+   2. Go to the location that you saved
    3. Run `source ubuntu_sim_ros_gazebo.sh`
    
 # OpenUAV #
