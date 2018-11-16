@@ -18,7 +18,7 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 
 # FAQ #
 
- ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib`##
+ ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib` ##
  Do the following:
   * In your terminal type:  `sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras`
   * When that installation is ready type: 
