@@ -1,7 +1,7 @@
 
 <a href="https://www.youtube.com/watch?v=Utye0OgjiB0&feature=youtu.be
 " target="_blank"><img src="https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png" 
-alt="IMAGE ALT TEXT HERE" width="460" height="180" border="10" /></a>
+alt="IMAGE ALT TEXT HERE" width="1080" height="180" border="10" /></a>
 
 # Pre-requisite #
 * Ubuntu 16.04 LTS
