@@ -45,19 +45,30 @@ Make sure there is no error in this launch. You can then close terminate the ter
 Clone the repository as to your home: `git clone https://github.com/CPS2018/Simulation_F651.git`
 1. Open a terminal and type `printenv | grep GAZEBO`
 2. Two or more paths should be displayed:
-   ```GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models```
-   ```GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build``` (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
+   `GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models`
+   
+   `GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build` (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
+   
 3. Add the file `gripper_plugin.cc` in the folder one step up from your `GAZEBO_PLUGIN_PATH`. In this case, it would be `/home/user/src/Firmware/Tools/sitl_gazebo/src`
 4. Add the following lines under plugins to the `CMakeLists.txt` file located at `/home/user/src/Firmware/Tools/sitl_gazebo/src`
 `find_package(roscpp REQUIRED)`
+
 `find_package(std_msgs REQUIRED)`
+
 `include_directories(${roscpp_INCLUDE_DIRS})`
+
 `include_directories(${std_msgs_INCLUDE_DIRS})	`
+
 `find_package(gazebo REQUIRED)`
+
 `include_directories(${GAZEBO_INCLUDE_DIRS})`
+
 `link_directories(${GAZEBO_LIBRARY_DIRS})`
+
 `set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")`
+
 `add_library(gripper_plugin SHARED src/gripper_plugin.cc)`
+
 `target_link_libraries(gripper_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})`
 
 5. Open a terminal and type the following:
@@ -73,10 +84,13 @@ Clone the repository as to your home: `git clone https://github.com/CPS2018/Simu
 	`sudo nano ~/.bashrc`
 10. In your bashrc, add the following line along with your GAZEBO_MODEL_PATH:
 	`:/home/user/catkin_ws/src/simulation_control/src/models`
+	
    For example if it looks like this:
 	`export GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models`
+	
    After editing it should look like this:
 	`export GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models`
+	
 11. Add the file `f550_amazing` to `/home/user/src/Firmware/posix-configs/SITL/init/lpe`
 
 # Running the Simulation #
