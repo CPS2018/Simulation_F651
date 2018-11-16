@@ -21,17 +21,71 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 10. Go to your `catkin_ws/src` folder (`cd ~/catkin_ws/src`) and build it by typing `catkin build` in the terminal.
 11. `source devel/setup.bash`
 12. Now do the folliwing to configure your ROS environment
-  1. `roscd`
-  2. `cd ..`
-  3. `cd src/Firmware`
-  4. `make posix_sitl_default`
-  5. `source ~/catkin_ws/devel/setup.bash`
-  6. `source Tools/setup_gazebo.bash $(pwd) $(pwd)/build_posix_sitl_default`
-  7. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)`
-  8. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo`
-  9. `roslaunch px4 posix_sitl.launch`
-  10. `roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
-`
+    1. `roscd`
+    2. `cd ..`
+    3. `cd src/Firmware`
+    4. `make posix_sitl_default`
+    5. `source ~/catkin_ws/devel/setup.bash`
+    6. `source Tools/setup_gazebo.bash $(pwd) $(pwd)/build_posix_sitl_default`
+    7. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)`
+    8. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo`
+13. `roslaunch px4 posix_sitl.launch`
+14. `roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
+
+# Gripper Setup #
+
+1. Open the terminal and write ""printenv | grep GAZEBO"
+
+2. Two or more paths should be displayed:
+   GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models
+   GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build
+
+3. Gazebo gets it's models in this case from two paths which are told apart by the : sign.
+
+4. Add the file gripper_plugin.cc in the folder one step up from your GAZEBO_PLUGIN_PATH which in this case would be "/home/user/src/Firmware/Tools/sitl_gazebo/src"
+
+5. Add the following under plugins to the CMakeLists.txt file located at "/home/user/src/Firmware/Tools/sitl_gazebo/src"
+	# -----GripperPlugin
+	find_package(roscpp REQUIRED)
+	find_package(std_msgs REQUIRED)
+	include_directories(${roscpp_INCLUDE_DIRS})
+	include_directories(${std_msgs_INCLUDE_DIRS})	
+	find_package(gazebo REQUIRED)
+	include_directories(${GAZEBO_INCLUDE_DIRS})
+	link_directories(${GAZEBO_LIBRARY_DIRS})
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
+
+	add_library(gripper_plugin SHARED src/gripper_plugin.cc)
+	target_link_libraries(gripper_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})
+	# -----/GripperPlugin
+
+6. Type in TERMINAL:
+	cd ~/home/user/src/Firmware/Tools/sitl_gazebo/Build  (GAZEBO_PLUGIN_PATH)
+	cmake ../
+	make
+
+7. Add the folder "simulation_control" to your "catkin_ws/src" folder.
+
+8. Type in TERMINAL: (building the catkin workspace)
+	cd ~/catkin_ws
+	catkin build
+
+9. Double check if you're missing any dependencies like pysci etc. and install them if not. Then build again.
+   If you want it to work there can be no errors in the build.
+
+10. Type in terminal: (adding gazebo model path)
+	sudo nano ~/.bashrc
+
+11. Add the following line to the end of your GAZEBO_MODEL_PATH:
+	:/home/user/catkin_ws/src/simulation_control/src/models
+
+   For example if it looks like this:
+	export GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models
+
+   After editing it should look like this:
+	export GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models
+
+12. Add the file f550_amazing to "/home/user/src/Firmware/posix-configs/SITL/init/lpe".
 
 
 # FAQ #
