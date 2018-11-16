@@ -1,5 +1,5 @@
 # Autonomous search of a lost drone by F651 Hexacopter #
-After this README file, you should be able to run an autonomous mission of the drone (take off, oject detection and descend, pickup, dropoff and landing without coverage planning) as seen in this video.
+After this README file, you should be able to run an autonomous mission of the drone (take off, object detection and descend, pickup, dropoff and landing without coverage planning) as seen in this video.
 
 <a href="https://www.youtube.com/watch?v=Utye0OgjiB0&feature=youtu.be
 " target="_blank"><img src="https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png" 
