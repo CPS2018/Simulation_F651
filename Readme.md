@@ -17,11 +17,10 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 7. Then try to run Gazebo by typing `gazebo` in your terminal
 
 # FAQ #
-<details>
- <summary>If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib`</summary>
- <p>Do the following:
+
+ ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib`##
+ Do the following:
   * In your terminal type:  `sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras`
   * When that installation is ready type: 
   * `wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh`
-  * `./install_geographiclib_datasets.sh` (you might have to make the install_geographiclib_datasets.sh executable.)</p>
-</details>
+  * `./install_geographiclib_datasets.sh` (you might have to make the install_geographiclib_datasets.sh executable.)
