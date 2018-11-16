@@ -21,14 +21,16 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 10. Go to your `catkin_ws/src` folder (`cd ~/catkin_ws/src`) and build it by typing `catkin build` in the terminal.
 11. `source devel/setup.bash`
 12. Now do the folliwing to configure your ROS environment
- 1. `roscd; cd ..; cd src/Firmware
-make posix_sitl_default
-source ~/catkin_ws/devel/setup.bash
-source Tools/setup_gazebo.bash $(pwd) $(pwd)/build_posix_sitl_default
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo
-roslaunch px4 posix_sitl.launch
-roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"
+  1. `roscd`
+  2. `cd ..`
+  3. `cd src/Firmware`
+  4. `make posix_sitl_default`
+  5. `source ~/catkin_ws/devel/setup.bash`
+  6. `source Tools/setup_gazebo.bash $(pwd) $(pwd)/build_posix_sitl_default`
+  7. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)`
+  8. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo`
+  9. `roslaunch px4 posix_sitl.launch`
+  10. `roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
 `
 
 
