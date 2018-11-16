@@ -1,6 +1,6 @@
 '''PID for F651
  
-  Copyright (C) 2018 Patrik Karlsson. All rights reserved.
+  Copyright (C) 2018, CPS2018 Challenge by Team Halmstad. All rights reserved.
  
   BSD license:
   Redistribution and use in source and binary forms, with or without
