@@ -32,8 +32,10 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
     8. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$(pwd)/Tools/sitl_gazebo`
 13. Open a terminal and type: `roslaunch px4 posix_sitl.launch`
 14. Open a terminal and type: `roslaunch mavros px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
+Make sure there is no error in this launch. You can then close terminate the terminals.
 
 # Gripper Setup #
+Clone the repository as to your home: `git clone https://github.com/CPS2018/Simulation_F651.git`
 1. Open a terminal and type `printenv | grep GAZEBO`
 2. Two or more paths should be displayed:
    GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models
@@ -85,4 +87,4 @@ Open three Terminals:
   * When that installation is ready type: 
   * `wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh`
   * `./install_geographiclib_datasets.sh` (you might have to make the install_geographiclib_datasets.sh executable.)
-## If roslaunch cannot find the python node, then you need to change permissions for all the python sources using `chmod` ##
+## If roslaunch cannot find the python node, then you need to change the permissions for all the python source code files using ` sudo chmod filename.py` ##
