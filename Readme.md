@@ -85,4 +85,4 @@ Open three Terminals:
   * When that installation is ready type: 
   * `wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh`
   * `./install_geographiclib_datasets.sh` (you might have to make the install_geographiclib_datasets.sh executable.)
-## If roslaunch cannot find the python node, then you need to change permissions for all the python sources using chmod ##
+## If roslaunch cannot find the python node, then you need to change permissions for all the python sources using `chmod` ##
