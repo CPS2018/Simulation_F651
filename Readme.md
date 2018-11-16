@@ -71,10 +71,16 @@ This simulation is based on [OpenUAV](https://github.com/Open-UAV) project.
 	`export GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models`
 11. Add the file `f550_amazing` to `/home/user/src/Firmware/posix-configs/SITL/init/lpe`
 
+# Running the Simulation #
+Open three Terminals:
+1. `roslaunch simulation_control posix_sitl.launch`
+2. `roslaunch simulation_control px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
+3. `roslaunch simulation_control simulation_control.launch` 
+	
 # FAQ #
  ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib` ##
  Do the following:
-  * In your terminal type:  `sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras`
+  * In your terminal type: `sudo apt-get install ros-kinetic-mavros ros-kinetic-mavros-extras`
   * When that installation is ready type: 
   * `wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh`
   * `./install_geographiclib_datasets.sh` (you might have to make the install_geographiclib_datasets.sh executable.)
