@@ -45,17 +45,29 @@ Clone the repository as to your home: `git clone https://github.com/CPS2018/Simu
    ```GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build``` (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
 3. Add the file `gripper_plugin.cc` in the folder one step up from your `GAZEBO_PLUGIN_PATH`. In this case, it would be `/home/user/src/Firmware/Tools/sitl_gazebo/src`
 4. Add the following under plugins to the `CMakeLists.txt` file located at `/home/user/src/Firmware/Tools/sitl_gazebo/src`
+
 	` -----GripperPlugin`
-	`find_package(roscpp REQUIRED)`
-	`find_package(std_msgs REQUIRED)`
-	`include_directories(${roscpp_INCLUDE_DIRS})`
-	`include_directories(${std_msgs_INCLUDE_DIRS})	`
-	`find_package(gazebo REQUIRED)`
-	`include_directories(${GAZEBO_INCLUDE_DIRS})`
-	`link_directories(${GAZEBO_LIBRARY_DIRS})`
-	`set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")`
-        `add_library(gripper_plugin SHARED src/gripper_plugin.cc)`
-	`target_link_libraries(gripper_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})`
+
+`find_package(roscpp REQUIRED)`
+
+`find_package(std_msgs REQUIRED)`
+
+`include_directories(${roscpp_INCLUDE_DIRS})`
+
+`include_directories(${std_msgs_INCLUDE_DIRS})	`
+
+`find_package(gazebo REQUIRED)`
+
+`include_directories(${GAZEBO_INCLUDE_DIRS})`
+
+`link_directories(${GAZEBO_LIBRARY_DIRS})`
+
+`set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")`
+
+`add_library(gripper_plugin SHARED src/gripper_plugin.cc)`
+
+`target_link_libraries(gripper_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})`
+
 5. Open a terminal and type the following:
 	1. `cd ~/home/user/src/Firmware/Tools/sitl_gazebo/Build`  (GAZEBO_PLUGIN_PATH)
 	2. `cmake ../`
