@@ -1,5 +1,7 @@
 
-  ![gazebo_quadtest](https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png)
+<a href="https://www.youtube.com/watch?v=Utye0OgjiB0&feature=youtu.be
+" target="_blank"><img src="https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png" 
+alt="IMAGE ALT TEXT HERE" width="2400" height="1800" border="10" /></a>
 
 # Pre-requisite #
 * Ubuntu 16.04 LTS
@@ -80,10 +82,6 @@ Open three Terminals:
 1. `roslaunch simulation_control posix_sitl.launch`
 2. `roslaunch simulation_control px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
 3. `roslaunch simulation_control simulation_control.launch` 
-
-<a href="https://www.youtube.com/watch?v=Utye0OgjiB0&feature=youtu.be
-" target="_blank"><img src="https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png" 
-alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>
 
 # FAQ #
  ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib` ##
