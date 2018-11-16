@@ -41,8 +41,8 @@ Make sure there is no error in this launch. You can then close terminate the ter
 Clone the repository as to your home: `git clone https://github.com/CPS2018/Simulation_F651.git`
 1. Open a terminal and type `printenv | grep GAZEBO`
 2. Two or more paths should be displayed:
-   `GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models`
-   `GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build` (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
+   ```GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models```
+   ```GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build``` (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
 3. Add the file `gripper_plugin.cc` in the folder one step up from your `GAZEBO_PLUGIN_PATH`. In this case, it would be `/home/user/src/Firmware/Tools/sitl_gazebo/src`
 4. Add the following under plugins to the `CMakeLists.txt` file located at `/home/user/src/Firmware/Tools/sitl_gazebo/src`
 	` -----GripperPlugin`
