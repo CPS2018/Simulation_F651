@@ -1,3 +1,6 @@
+
+  ![gazebo_quadtest](https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png)
+
 # Pre-requisite #
 * Ubuntu 16.04 LTS
 * ROS Kinetic
@@ -38,10 +41,10 @@ Make sure there is no error in this launch. You can then close terminate the ter
 Clone the repository as to your home: `git clone https://github.com/CPS2018/Simulation_F651.git`
 1. Open a terminal and type `printenv | grep GAZEBO`
 2. Two or more paths should be displayed:
-   GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models
-   GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
-3. Add the file `gripper_plugin.cc` in the folder one step up from your GAZEBO_PLUGIN_PATH. In this case, it would be "/home/user/src/Firmware/Tools/sitl_gazebo/src"
-4. Add the following under plugins to the `CMakeLists.txt` file located at "/home/user/src/Firmware/Tools/sitl_gazebo/src"
+   `GAZEBO_MODEL_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/models:/home/user/catkin_ws/src/simulation_control/src/models`
+   `GAZEBO_PLUGIN_PATH=:/home/user/src/Firmware/Tools/sitl_gazebo/Build` (Gazebo gets it's models in this case from two paths which are told apart by the `:` sign.)
+3. Add the file `gripper_plugin.cc` in the folder one step up from your `GAZEBO_PLUGIN_PATH`. In this case, it would be `/home/user/src/Firmware/Tools/sitl_gazebo/src`
+4. Add the following under plugins to the `CMakeLists.txt` file located at `/home/user/src/Firmware/Tools/sitl_gazebo/src`
 	` -----GripperPlugin`
 	`find_package(roscpp REQUIRED)`
 	`find_package(std_msgs REQUIRED)`
@@ -54,7 +57,7 @@ Clone the repository as to your home: `git clone https://github.com/CPS2018/Simu
         `add_library(gripper_plugin SHARED src/gripper_plugin.cc)`
 	`target_link_libraries(gripper_plugin ${GAZEBO_libraries} ${roscpp_LIBRARIES})`
 5. Open a terminal and type the following:
-	1. `cd ~/home/user/src/Firmware/Tools/sitl_gazebo/Build  (GAZEBO_PLUGIN_PATH)`
+	1. `cd ~/home/user/src/Firmware/Tools/sitl_gazebo/Build`  (GAZEBO_PLUGIN_PATH)
 	2. `cmake ../`
 	3. `make`
 6. Add the folder `simulation_control` to your `catkin_ws/src` folder.
@@ -77,9 +80,7 @@ Open three Terminals:
 1. `roslaunch simulation_control posix_sitl.launch`
 2. `roslaunch simulation_control px4.launch fcu_url:="udp://:14550@127.0.0.1:14557"`
 3. `roslaunch simulation_control simulation_control.launch` 
-	
-   ![gazebo_quadtest](https://user-images.githubusercontent.com/2436747/48624033-bdee7180-e9ab-11e8-8414-801eee34f4e9.png)
-	
+		
 # FAQ #
  ## If after making `posix_sitl`, Gazebo doesn’t launch and gives you a error message regarding `geographiclib` ##
  Do the following:
